@@ -1,0 +1,5 @@
+We are going to create a Shape and Color interfaces and concrete classes implementing these interfaces. We create an abstract factory class AbstractFactory as next step. 
+Factory classes ShapeFactory and ColorFactory are defined where each factory extends AbstractFactory. A factory creator/generator class FactoryProducer is created.
+AbstractFactoryPatternDemo, our demo class, uses FactoryProducer to get an AbstractFactory object. 
+It will pass information (CIRCLE / RECTANGLE / SQUARE for Shape) to AbstractFactory to get the type of object it needs. 
+It also passes information (RED / GREEN / BLUE for Color) to AbstractFactory to get the type of object it needs.

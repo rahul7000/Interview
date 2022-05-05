@@ -1,0 +1,10 @@
+#### Veg Meal ##########
+Item : Veg Burger, Packing : Wrapper, Price : 20.9
+Item : Coke, Packing : Bottle, Price : 20.0
+Cost for veg meal: 40.9
+#### NON Veg Meal ##########
+Item : Chicken Burger, Packing : Wrapper, Price : 35.5
+Item : Pepsi, Packing : Bottle, Price : 30.0
+Cost for non-veg meal: 65.5
+Total price
+106.4

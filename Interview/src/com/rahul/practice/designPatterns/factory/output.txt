@@ -1,0 +1,6 @@
+Circle Obj : 
+Lets draw a circle
+Square Obj : 
+Lets draw a square
+Rectangle Obj : 
+Lets draw a rectangle
