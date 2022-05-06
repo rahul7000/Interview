@@ -12,6 +12,7 @@ public class MaxSumOfCornerElementsTest {
 	}
 
 	private static int solution(int[] arr, int k) {
+		int size = arr.length;
 		int curSum = 0;
 		int maxSum = 0;
 		if (k > arr.length) {
@@ -22,6 +23,13 @@ public class MaxSumOfCornerElementsTest {
 			curSum += arr[i];
 		}
 
-		return -1;
+		maxSum = curSum;
+
+		for (int i = k - 1, j = size - 1; i >= 0; i--, j--) {
+			curSum = curSum + arr[j] - arr[i];
+			maxSum = Math.max(maxSum, curSum);
+		}
+
+		return maxSum;
 	}
 }
