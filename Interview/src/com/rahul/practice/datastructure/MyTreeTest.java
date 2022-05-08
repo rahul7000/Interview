@@ -726,13 +726,21 @@ class MyBST<T extends Number> implements MyBSTInterface<Integer> {
 			int size = queue.size();
 			for (int i = 0; i < queue.size(); i++) {
 				Node node = queue.poll();
+				
+				//Last elemnt of each level
 				if (i == size - 1) {
 					System.out.println(node.getKey());
 				}
+				
+				if(node.getLeft() != null) {
+					queue.offer(node.getLeft());
+				}
+				
+				if(node.getRight()!=null) {
+					queue.offer(node.getRight());
+				}
 			}
-
 		}
-
 	}
 
 	@Override
