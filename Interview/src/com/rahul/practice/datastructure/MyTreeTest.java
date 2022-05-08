@@ -95,6 +95,9 @@ interface MyBSTInterface<T extends Number> {
 
 	// Method to print left view of BST
 	void printLeftView();
+	
+	// Method to print right view of BST
+	void printRightView();
 
 	// Function to check leaf nodes of binary tree are at same level
 	Boolean isLeavesAtSameLevel();
@@ -704,6 +707,33 @@ class MyBST<T extends Number> implements MyBSTInterface<Integer> {
 			}
 		}
 	}
+	
+	@Override
+	public void printRightView() {
+		if (root == null) {
+			System.out.println("UnderFlow:");
+			return;
+		}
+		printRightView(root);
+	}
+
+	private void printRightView(MyBST<T>.Node tempRoot) {
+		Queue<Node> queue = new LinkedList<>();
+		queue.offer(tempRoot);
+		queue.offer(null);
+
+		while (!queue.isEmpty()) {
+			int size = queue.size();
+			for (int i = 0; i < queue.size(); i++) {
+				Node node = queue.poll();
+				if (i == size - 1) {
+					System.out.println(node.getKey());
+				}
+			}
+
+		}
+
+	}
 
 	@Override
 	public Boolean isLeavesAtSameLevel() {
@@ -964,6 +994,7 @@ class MyBST<T extends Number> implements MyBSTInterface<Integer> {
 		return (left_lca != null) ? left_lca : right_lca;
 
 	}
+
 }
 
 public class MyTreeTest {
