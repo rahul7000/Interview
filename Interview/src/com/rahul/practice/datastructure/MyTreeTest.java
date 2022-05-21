@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
+
 interface MyBSTInterface<T extends Number> {
 
 	/*
@@ -95,7 +96,7 @@ interface MyBSTInterface<T extends Number> {
 
 	// Method to print left view of BST
 	void printLeftView();
-	
+
 	// Method to print right view of BST
 	void printRightView();
 
@@ -316,10 +317,24 @@ class MyBST<T extends Number> implements MyBSTInterface<Integer> {
 	}
 
 	private void inOrder(MyBST<T>.Node tempRoot) {
-		if (tempRoot != null) {
-			inOrder(tempRoot.getLeft());
-			System.out.print("(" + tempRoot.getKey() + ") ");
-			inOrder(tempRoot.getRight());
+		// if (tempRoot != null) {
+		// inOrder(tempRoot.getLeft());
+		// System.out.print("(" + tempRoot.getKey() + ") ");
+		// inOrder(tempRoot.getRight());
+		// }
+		Stack<Node> stack = new Stack<>();
+		Node curNode = tempRoot;
+
+		while (curNode != null || !stack.isEmpty()) {
+			while (curNode != null) {
+				stack.push(curNode);
+				curNode = curNode.getLeft();
+
+			}
+			curNode = stack.pop();
+			System.out.print(curNode.getKey());
+
+			curNode = curNode.getRight();
 		}
 	}
 
@@ -707,7 +722,7 @@ class MyBST<T extends Number> implements MyBSTInterface<Integer> {
 			}
 		}
 	}
-	
+
 	@Override
 	public void printRightView() {
 		if (root == null) {
@@ -726,17 +741,17 @@ class MyBST<T extends Number> implements MyBSTInterface<Integer> {
 			int size = queue.size();
 			for (int i = 0; i < queue.size(); i++) {
 				Node node = queue.poll();
-				
-				//Last elemnt of each level
+
+				// Last elemnt of each level
 				if (i == size - 1) {
 					System.out.println(node.getKey());
 				}
-				
-				if(node.getLeft() != null) {
+
+				if (node.getLeft() != null) {
 					queue.offer(node.getLeft());
 				}
-				
-				if(node.getRight()!=null) {
+
+				if (node.getRight() != null) {
 					queue.offer(node.getRight());
 				}
 			}
