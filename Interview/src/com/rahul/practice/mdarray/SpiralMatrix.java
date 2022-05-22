@@ -1,4 +1,4 @@
-package com.rahul.pratice.mdarray;
+package com.rahul.practice.mdarray;
 
 import java.util.ArrayList;
 import java.util.List;
