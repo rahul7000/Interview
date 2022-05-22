@@ -348,10 +348,27 @@ class MyBST<T extends Number> implements MyBSTInterface<Integer> {
 	}
 
 	private void postOrder(MyBST<T>.Node tempRoot) {
-		if (tempRoot != null) {
-			postOrder(tempRoot.getLeft());
-			postOrder(tempRoot.getRight());
-			System.out.print("(" + tempRoot.getKey() + ") ");
+		// if (tempRoot != null) {
+		// postOrder(tempRoot.getLeft());
+		// postOrder(tempRoot.getRight());
+		// System.out.print("(" + tempRoot.getKey() + ") ");
+		// }
+		Stack<Node> stackOne = new Stack<>();
+		Stack<Node> stackTwo = new Stack<>();
+		stackOne.push(tempRoot);
+		while (!stackOne.isEmpty()) {
+			Node node = stackOne.pop();
+			stackTwo.push(node);
+			if (node.getLeft() != null) {
+				stackOne.push(node.getLeft());
+			}
+			if (node.getRight() != null) {
+				stackOne.push(node.getRight());
+			}
+		}
+
+		while (!stackTwo.isEmpty()) {
+			System.out.print(stackTwo.pop().key);
 		}
 
 	}
