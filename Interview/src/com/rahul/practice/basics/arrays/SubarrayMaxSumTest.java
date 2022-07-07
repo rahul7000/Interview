@@ -22,12 +22,12 @@ public class SubarrayMaxSumTest {
 		int endIndex = 0, startIndex = 0, globalMaxStartIndex = 0;
 
 		for (int i = 1; i < nums.size(); ++i) {
+			
 			// Update currMax and startIndex
 			if (nums.get(i) > nums.get(i) + currMax) {
 				currMax = nums.get(i);
 				startIndex = i;
 			}
-
 			// Update currMax
 			else if (nums.get(i) < nums.get(i) + currMax) {
 				currMax = nums.get(i) + currMax;
